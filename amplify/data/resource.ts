@@ -1,9 +1,10 @@
 import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
+import { sendEmail } from '../functions/send-email/resource';
 
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
 adding a new "isDone" field as a boolean. The authorization rule below
-specifies that any unauthenticated user can "create", "read", "update", 
+specifies that any unauthenticated user can "create", "read", "update",
 and "delete" any "Todo" records.
 =========================================================================*/
 const schema = a.schema({
@@ -12,6 +13,19 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization((allow) => [allow.owner()]),
+
+  sendContactEmail: a
+    .mutation()
+    .arguments({
+      companyName: a.string(),
+      contactName: a.string(),
+      phoneNumber: a.string(),
+      services: a.string().array(),
+      message: a.string(),
+    })
+    .returns(a.json())
+    .authorization((allow) => [allow.publicApiKey()])
+    .handler(a.handler.function(sendEmail))
 });
 
 export type Schema = ClientSchema<typeof schema>;
@@ -20,6 +34,9 @@ export const data = defineData({
   schema,
   authorizationModes: {
     defaultAuthorizationMode: 'userPool',
+    apiKeyAuthorizationMode: {
+      expiresInDays: 365,
+    },
   },
 });
 

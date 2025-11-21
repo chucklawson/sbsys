@@ -65,13 +65,14 @@ function SplashPage({ onEnter }: SplashPageProps) {
 
           {/* CTA Button */}
           <div className="pt-8">
+            <div className="splash">
             <button
               onClick={onEnter}
-              className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-blue-600 rounded-lg overflow-hidden transition-all duration-300 hover:bg-blue-700 hover:scale-105 shadow-lg hover:shadow-xl"
-            >
+             className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-yellow-200 bg-blue-400 rounded-lg overflow-hidden transition-all duration-300 hover:bg-blue-700 hover:scale-105 shadow-lg hover:shadow-xl">
               <span className="relative z-10">Enter Application</span>
               <span className="ml-2 text-xl group-hover:translate-x-1 transition-transform duration-300">→</span>
             </button>
+          </div>
           </div>
 
           {/* Footer */}
