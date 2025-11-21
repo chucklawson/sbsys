@@ -63,7 +63,7 @@ function MarketChart() {
 
   // Calculate change percentage
   const getChangePercent = () => {
-    if (data.length < 2) return 0
+    if (data.length < 2) return '0'
     const first = data[0].value
     const last = data[data.length - 1].value
     return (((last - first) / first) * 100).toFixed(2)
