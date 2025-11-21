@@ -4,6 +4,7 @@ import '@aws-amplify/ui-react/styles.css'
 import { generateClient } from 'aws-amplify/data'
 import type { Schema } from '../amplify/data/resource'
 import './App.css'
+import SplashPage from './SplashPage'
 
 const client = generateClient<Schema>()
 
@@ -18,6 +19,12 @@ interface DashboardProps {
 }
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true)
+
+  if (showSplash) {
+    return <SplashPage onEnter={() => setShowSplash(false)} />
+  }
+
   return (
     <Authenticator>
       {({ signOut, user }) => (
