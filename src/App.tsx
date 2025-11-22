@@ -456,7 +456,7 @@ function Dashboard({ signOut, user }: DashboardProps) {
                   type="text"
                   value={contactForm.companyName}
                   onChange={(e) => setContactForm({...contactForm, companyName: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
                   placeholder="Your company name"
                 />
               </div>
@@ -469,7 +469,7 @@ function Dashboard({ signOut, user }: DashboardProps) {
                   type="text"
                   value={contactForm.contactName}
                   onChange={(e) => setContactForm({...contactForm, contactName: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
                   placeholder="Your name"
                 />
               </div>
@@ -482,7 +482,7 @@ function Dashboard({ signOut, user }: DashboardProps) {
                   type="email"
                   value={contactForm.email}
                   onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
                   placeholder="your@email.com"
                 />
               </div>
@@ -495,7 +495,7 @@ function Dashboard({ signOut, user }: DashboardProps) {
                   type="tel"
                   value={contactForm.phoneNumber}
                   onChange={(e) => setContactForm({...contactForm, phoneNumber: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
                   placeholder="Your phone number"
                 />
               </div>
@@ -533,7 +533,7 @@ function Dashboard({ signOut, user }: DashboardProps) {
                 <textarea
                   value={contactForm.message}
                   onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
                   rows={3}
                   placeholder="Any additional questions or comments..."
                 />
