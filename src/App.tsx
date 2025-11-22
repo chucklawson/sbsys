@@ -70,6 +70,7 @@ function Dashboard({ signOut, user }: DashboardProps) {
   const [contactForm, setContactForm] = useState({
     companyName: '',
     contactName: '',
+    email: '',
     phoneNumber: '',
     accounting: false,
     production: false,
@@ -86,6 +87,7 @@ function Dashboard({ signOut, user }: DashboardProps) {
       const result = await client.mutations.sendContactEmail({
         companyName: contactForm.companyName,
         contactName: contactForm.contactName,
+        email: contactForm.email,
         phoneNumber: contactForm.phoneNumber,
         services: services,
         message: contactForm.message,
@@ -100,6 +102,7 @@ function Dashboard({ signOut, user }: DashboardProps) {
       setContactForm({
         companyName: '',
         contactName: '',
+        email: '',
         phoneNumber: '',
         accounting: false,
         production: false,
@@ -468,6 +471,19 @@ function Dashboard({ signOut, user }: DashboardProps) {
                   onChange={(e) => setContactForm({...contactForm, contactName: e.target.value})}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Your name"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  value={contactForm.email}
+                  onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="your@email.com"
                 />
               </div>
 

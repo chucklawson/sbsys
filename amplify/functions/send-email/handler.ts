@@ -5,7 +5,7 @@ const sesClient = new SESClient({});
 
 export const handler: Schema['sendContactEmail']['functionHandler'] = async (event) => {
   try {
-    const { companyName, contactName, phoneNumber, services, message } = event.arguments;
+    const { companyName, contactName, email, phoneNumber, services, message } = event.arguments;
 
     const servicesList = services && services.length > 0
       ? services.filter((s): s is string => s !== null).map((s) => `- ${s}`).join('\n')
@@ -20,6 +20,7 @@ ${servicesList}
 
 Company Name: ${companyName || 'Not provided'}
 Contact Name: ${contactName || 'Not provided'}
+Email: ${email || 'Not provided'}
 Phone Number: ${phoneNumber || 'Not provided'}
 
 Additional Message:
@@ -29,6 +30,7 @@ Thank you!`;
 
     const command = new SendEmailCommand({
       Source: 'sciotobussys@gmail.com', // Must be verified in SES
+      ReplyToAddresses: email ? [email] : undefined,
       Destination: {
         ToAddresses: ['sciotobussys@gmail.com'],
       },

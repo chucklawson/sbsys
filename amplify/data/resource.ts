@@ -19,6 +19,7 @@ const schema = a.schema({
     .arguments({
       companyName: a.string(),
       contactName: a.string(),
+      email: a.string(),
       phoneNumber: a.string(),
       services: a.string().array(),
       message: a.string(),
