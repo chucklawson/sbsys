@@ -89,6 +89,8 @@ function Dashboard({ signOut, user }: DashboardProps) {
         phoneNumber: contactForm.phoneNumber,
         services: services,
         message: contactForm.message,
+      }, {
+        authMode: 'apiKey'
       })
 
       console.log('Email sent successfully:', result)
